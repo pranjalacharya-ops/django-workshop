@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product{
+            background-color: beige;
+            border: 1px solid black;
+            margin: 20px;
+            padding: 20px;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product img{
+            display: block;
+            width: 200px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 12px auto;
+            border-radius: 8px;
+        }
+        .product:hover{
+            box-shadow: 10px 10px 10px grey;
+        }
+        .btn{
+            background-color: blue;
+            color: white;
+            border-radius: 10px;
+            width: 200px;
+            heigth: 25px;
+            border: 1px solid blue;
+        }
+        .btn:hover{
+            background-color:blue;
+            color:white;
+            border: 1px solid white;
+        }
+    </style>
+    <link rel="stylesheet"href="{%static 'style.css'%}">    
+</head>
+<body>
+    {% include 'menu.html' %}
+    <h1 style="text-align: center;">foodshop</h1>   
+
+    <!--Content Start-->
+    <div class="main">
+        <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'pizza.jpg'%}"/>
+            <h3>Pizza</h3>
+            <p>₹150</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+         <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'burger.jpg'%}"/>
+            <h3>Burger</h3>
+            <p>₹200</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End--> 
+        <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'fries.jpg'%}"/>
+            <h3>Fries</h3>
+            <p>₹100</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End--> <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'sandwhich.jpg'%}"/>
+            <h3>Sandwich</h3>
+            <p>₹500</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+         <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'pasta.jpg'%}"/>
+            <h3>Pasta</h3>
+            <p>₹200</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+        <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'vadapav.jpg'%}"/>
+            <h3>Vada Pav</h3>
+            <p>₹50</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+        <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'panipuri.jpg'%}"/>
+            <h3>Pani Puri</h3>
+            <p>₹20</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+         <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'poha.jpg'%}"/>
+            <h3>Poha</h3>
+            <p>₹100</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End--> 
+        <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'samosa.jpg'%}"/>
+            <h3>Samosa</h3>
+            <p>₹50</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+    
+        <!--Product Start-->
+        <div class="product">
+            <img src="{% static 'bhel.jpg'%}"/>
+            <h3>Bhel</h3>
+            <p>₹100</p>
+            <input type="button" class="btn" value="Buy Now"/>
+        </div>
+        <!--Product End-->
+    </div>
+    <!--Content End-->
+</body> 
+</body>
+</html>
