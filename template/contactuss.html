@@ -1,0 +1,12 @@
+<html>
+<body>
+   <h3>Contact US</h3>
+    <form method="post" action="/contactussprocess">
+{% csrf_token %}
+    Name : <input type="text" name="txt1"/> <br/>
+    Mobile : <input type="text" name="txt2"/><br/>
+    Message : <input type="text" name="txt3"/><br/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>

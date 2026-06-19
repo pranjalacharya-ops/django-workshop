@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
+
 # Create your views here.
 
 def homepage(request):
@@ -68,3 +71,64 @@ def dashboard(request):
 def logout(request):
      del request.session['username']
      return redirect(loginpage)
+
+def mailsenddemo(request):
+      subject = 'Django Mail Demo'
+      message = ' Hello How are you ?'
+      email_from = settings.EMAIL_HOST_USER
+      recipient_list = ['pranjalacharya10@gmail.com',]
+      send_mail( subject, message, email_from, recipient_list )
+      return HttpResponse("Mail Sent")
+#dynamic mail
+def contactuspageview(request):
+      return render(request, 'contactus.html')
+def mailsendprocess(request):
+      subject = request.POST['txt2']
+      message = request.POST['txt3']
+      recipient_list = [request.POST['txt1'],]
+      email_from = settings.EMAIL_HOST_USER
+      send_mail( subject, message, email_from, recipient_list )
+      return HttpResponse("Mail Sent")
+
+#contactuss
+# Create your views here.
+def contactusspage(request):
+      return render(request, 'contactuss.html')
+
+def contactusspageprocess(request) :
+      txt1 = request.POST['txt1']
+      txt2 = request.POST['txt2']
+      txt3 = request.POST['txt3' ]
+
+      mymsg = "Hello has Contact you",txt1," Mobile No is ",txt2," Message is ",txt3
+
+      subject = 'Contact us From Website'
+      email_from = settings.EMAIL_HOST_USER
+
+      message = mymsg
+      recipient_list = ['pranjalacharya10@gmail.com',]
+      send_mail( subject, message, email_from, recipient_list )
+      return HttpResponse("Thank you for Contacting us.")
+#student
+from . models import Student
+
+def addstudentform(request):
+      return render(request, 'add-student.html')
+
+def addstudentformprocess(request):
+      txt1 = request. POST[ 'txt1' ]
+      txt2 = request. POST[ 'txt2' ]
+      txt3 = request.POST[ 'txt3' ]
+      txt4 = request.POST['txt4' ]
+      Student .objects.create(name=txt1, mobile=txt2, email=txt3, address=txt4)
+      
+      mymsg = "Hello has Contact you",txt1," Mobile No is ",txt2," Message is ",txt3
+
+      subject = 'Contact us From Website'
+      email_from = settings.EMAIL_HOST_USER
+
+      message = mymsg
+      recipient_list = ['pranjalacharya10@gmail.com',]
+      send_mail( subject, message, email_from, recipient_list )
+      return HttpResponse("Thank you for Contacting us.")
+    
